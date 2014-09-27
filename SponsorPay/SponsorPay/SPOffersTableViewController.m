@@ -48,14 +48,24 @@
     cell.payoutLabel.text = [[self.payoutArray objectAtIndex:indexPath.row] stringValue];
     cell.teaserLabel.text = [self.teaserArray objectAtIndex:indexPath.row];
     
+    
     NSDictionary *imageArr = [self.thumbnailArray objectAtIndex:indexPath.row];
-    NSString *imageURL = [imageArr objectForKey:@"lowres"];
+ 
+    NSURL *url = [NSURL URLWithString:[imageArr objectForKey:@"lowres"]];
+    NSURLRequest* request = [NSURLRequest requestWithURL:url];
     
     
-    
-    cell.thumbnailImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
-
-    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse * response,
+                                               NSData * data,
+                                               NSError * error) {
+                               if (!error){
+                                   UIImage *image = [[UIImage alloc] initWithData:data];
+                                   cell.thumbnailImageView.image = image;
+                               }
+                               
+                           }];
     return cell;
 }
 
