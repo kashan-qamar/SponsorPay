@@ -47,18 +47,20 @@ NSString *const SPOffersIdentififier = @"SPOfferIdentifier";
     
     self.title = @"Fyber Offers Form";
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(dismissKeyboard:)];
-    [self.view addGestureRecognizer:tap];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self.view addGestureRecognizer:singleTap];
     
 }
 
 - (IBAction)getOffers:(id)sender{
+    
+    self.offerButton.userInteractionEnabled = NO;
+    self.offerButton.backgroundColor = [UIColor grayColor];
 
     NSString *uid = self.uId.text;
     NSString *appId = self.appId.text;
     NSString *apiKey = self.apiKey.text;
-    NSString *pub0 = self.pub0.text;
+    //NSString *pub0 = self.pub0.text;
     NSString *locale = @"de";
     NSString *ipAddress = @"109.235.143.113";
     NSString *timeStamp = [self GetCurrentTimeStamp];
@@ -143,8 +145,16 @@ NSString *const SPOffersIdentififier = @"SPOfferIdentifier";
                                              cancelButtonTitle:@"OK"
                                              otherButtonTitles:nil];
         [alert show];
+        
+        self.offerButton.userInteractionEnabled = YES;
+        self.offerButton.backgroundColor = [UIColor greenColor];
+
     }
     else{
+        
+    self.offerButton.userInteractionEnabled = YES;
+    self.offerButton.backgroundColor = [UIColor greenColor];
+        
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     SPOffersTableViewController *offersController = [storyboard instantiateViewControllerWithIdentifier:@"SPOfferIdentifier"];
     offersController.titleArray = self.titleArray;
@@ -164,8 +174,9 @@ NSString *const SPOffersIdentififier = @"SPOfferIdentifier";
     return [[NSNumber numberWithInt:unixtime] stringValue];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.view endEditing:YES];// this will do the trick
+-(void)handleSingleTap:(UITapGestureRecognizer *)sender{
+
+   [self.view endEditing:YES];
 }
 
 - (void)prepareRestKitMapping{
