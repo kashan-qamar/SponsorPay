@@ -312,7 +312,7 @@
                                 <connections>
                                     <outlet property="payoutLabel" destination="tSp-wT-BwQ" id="XJ7-oG-rou"/>
                                     <outlet property="teaserLabel" destination="ZQg-dj-7z8" id="zUN-yH-u15"/>
-                                    <outlet property="thumbnailLabel" destination="V3E-yh-ye3" id="hYT-pA-mYJ"/>
+                                    <outlet property="thumbnailImageView" destination="V3E-yh-ye3" id="AVN-Wb-O4m"/>
                                     <outlet property="titlesLabel" destination="JjK-BP-qri" id="Uny-6p-dUw"/>
                                 </connections>
                             </tableViewCell>

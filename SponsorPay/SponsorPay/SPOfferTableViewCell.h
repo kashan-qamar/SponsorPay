@@ -13,7 +13,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *payoutLabel;
 @property (nonatomic, weak) IBOutlet UILabel *titlesLabel;
 
-@property (nonatomic, weak) IBOutlet UIImageView *thumbnailLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *thumbnailImageView;
 @property (nonatomic, weak) IBOutlet UILabel *teaserLabel;
 
 

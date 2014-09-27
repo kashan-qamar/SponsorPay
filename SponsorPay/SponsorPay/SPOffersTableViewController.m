@@ -48,8 +48,17 @@
     cell.payoutLabel.text = [[self.payoutArray objectAtIndex:indexPath.row] stringValue];
     cell.teaserLabel.text = [self.teaserArray objectAtIndex:indexPath.row];
     
+    NSDictionary *imageArr = [self.thumbnailArray objectAtIndex:indexPath.row];
+    NSString *imageURL = [imageArr objectForKey:@"lowres"];
+    
+    
+    
+    cell.thumbnailImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+
+    
     return cell;
 }
+
 
 
 

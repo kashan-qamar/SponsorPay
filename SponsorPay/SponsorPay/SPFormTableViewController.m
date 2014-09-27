@@ -47,6 +47,9 @@ NSString *const SPOffersIdentififier = @"SPOfferIdentifier";
     
     self.title = @"Fyber Offers Form";
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard:)];
+    [self.view addGestureRecognizer:tap];
     
 }
 
@@ -159,6 +162,10 @@ NSString *const SPOffersIdentififier = @"SPOfferIdentifier";
 {
     int unixtime = [[NSNumber numberWithDouble: [[NSDate date] timeIntervalSince1970]] integerValue];
     return [[NSNumber numberWithInt:unixtime] stringValue];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];// this will do the trick
 }
 
 - (void)prepareRestKitMapping{
