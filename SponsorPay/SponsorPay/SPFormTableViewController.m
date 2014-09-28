@@ -76,10 +76,12 @@ NSString *const SPOffersIdentififier = @"SPOfferIdentifier";
     
     NSLog(@"URL = %@", url);
     
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     self.responseData = [NSMutableData data];
     NSURLRequest *request = [NSURLRequest requestWithURL:
                              [NSURL URLWithString:url]];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
     
    
     
@@ -147,13 +149,15 @@ NSString *const SPOffersIdentififier = @"SPOfferIdentifier";
         [alert show];
         
         self.offerButton.userInteractionEnabled = YES;
-        self.offerButton.backgroundColor = [UIColor greenColor];
+        self.offerButton.backgroundColor = [UIColor blackColor];
 
     }
     else{
         
     self.offerButton.userInteractionEnabled = YES;
-    self.offerButton.backgroundColor = [UIColor greenColor];
+    self.offerButton.backgroundColor = [UIColor blackColor];
+    
+   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     SPOffersTableViewController *offersController = [storyboard instantiateViewControllerWithIdentifier:@"SPOfferIdentifier"];

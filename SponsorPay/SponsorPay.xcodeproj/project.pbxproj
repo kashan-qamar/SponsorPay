@@ -125,6 +125,7 @@
 		97C6288C19D2DFC100698675 /* SponsorPay */ = {
 			isa = PBXGroup;
 			children = (
+				97EC758219D7FB2E0028C3F6 /* Util */,
 				97DB95B419D62207003D7E2E /* Entities */,
 				97DB95B019D5AD7B003D7E2E /* Model */,
 				97DB95AF19D5AD5B003D7E2E /* Delegate */,
@@ -240,6 +241,13 @@
 				97EC757F19D6EF4C0028C3F6 /* SPOfferTableViewCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		97EC758219D7FB2E0028C3F6 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
