@@ -80,7 +80,7 @@ NSString *const SPOffersIdentififier = @"SPOfferIdentifier";
     self.responseData = [NSMutableData data];
     NSURLRequest *request = [NSURLRequest requestWithURL:
                              [NSURL URLWithString:url]];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     
    
